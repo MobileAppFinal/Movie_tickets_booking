@@ -21,7 +21,7 @@ class SocialLoginButtons extends StatelessWidget {
            ),
 
            child: InkWell(
-             onTap: () {},
+             onTap: onGoogleClick,
              child: Padding(
                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                child: Row(
@@ -45,7 +45,7 @@ class SocialLoginButtons extends StatelessWidget {
             ),
 
             child: InkWell(
-              onTap: () {},
+              onTap: onFacebookClick,
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 child: Row(

@@ -5,6 +5,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:movie_tickets_booking/pages/signup_screen.dart';
 import 'package:movie_tickets_booking/utils/mytheme.dart';
 import 'package:movie_tickets_booking/utils/social_buttons.dart';
 
@@ -48,7 +49,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 25,
-                        fontFamily: 'Lobster',
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -58,7 +58,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 28,
-                        fontFamily: 'Lobster',
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -247,7 +246,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
             Padding(
-              padding: const EdgeInsets.only(top: 15),
+              padding: const EdgeInsets.only(top: 40),
               child: RichText(text: TextSpan(
                 children: [
                   TextSpan(
@@ -267,7 +266,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                        Navigator.pushNamed(context, '/signup');
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const SignupScreen()));
                       },
                   ),
                   TextSpan(
