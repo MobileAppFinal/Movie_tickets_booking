@@ -1,8 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_tickets_booking/pages/start_screen.dart';
 import 'package:movie_tickets_booking/utils/mytheme.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 
@@ -19,4 +23,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
