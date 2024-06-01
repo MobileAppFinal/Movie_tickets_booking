@@ -242,7 +242,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: ElevatedButton(
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
-                                  AuthController.instance.loginUser(
+                                  AuthController.instance.login(
                                     _emailController.text.trim(),
                                     _passwordController.text.trim(),
                                   );
