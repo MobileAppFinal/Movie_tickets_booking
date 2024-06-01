@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1056640849868",
+    "project_id": "movie-tickets-booking-app",
+    "storage_bucket": "movie-tickets-booking-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1056640849868:android:398ca7c0512f7436312f69",
+        "android_client_info": {
+          "package_name": "com.example.movie_tickets_booking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1056640849868-tncpn9cj087ccnaih0fd3cfcso22h9qu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.movie_tickets_booking",
+            "certificate_hash": "f2dbf160b8dae16d99685a868515773bdeafc36a"
+          }
+        },
+        {
+          "client_id": "1056640849868-2mbm425ibvgnoqrg3odgt9mgejbqr8mv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSdaVY-q-ZJeE7vl3PlzcL_q3HVZztMPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1056640849868-2mbm425ibvgnoqrg3odgt9mgejbqr8mv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
