@@ -1,3 +1,4 @@
+
 class Constants {
   static const String baseAssetPath = "assets/";
   static const String baseApiUrl = "";
@@ -8,3 +9,4 @@ class Constants {
   static const String keySecret = "E0rXQPk7O1V9nymCsWpGlNHt";
   static const String keyId = "rzp_test_18uZyRVD8VK3Wv";
 }
+
