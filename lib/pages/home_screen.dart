@@ -5,9 +5,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:movie_tickets_booking/pages/profile_screen.dart';
 import 'package:movie_tickets_booking/utils/event_items.dart';
-import 'package:movie_tickets_booking/utils/movies_item.dart';
 import 'package:movie_tickets_booking/utils/mytheme.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -16,6 +17,7 @@ import '../utils/dummy_data.dart';
 import '../utils/constants.dart';
 import '../utils/custom_slider.dart';
 import '../utils/menu_item.dart';
+import '../utils/movies_item.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -35,6 +37,12 @@ class _HomeScreenState extends State<HomeScreen>{
     zoom: 14.4746,
   );
 
+@override
+  void initState() {
+  //  SharedPref.getLocation().then((value) => LocationController.instance.setCity(value));
+    super.initState();
+  }
+
   static const CameraPosition _kLake = CameraPosition(
       bearing: 192.8334901395799, 
       target: LatLng(16.074011, 108.149901), 
@@ -48,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen>{
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: MyTheme.statusBar));
     String? picUrl = AuthController.instance.user!.photoURL;
     picUrl = picUrl ?? Constants.dummyAvatar;
+    // String? picUrl = Constants.dummyAvatar;
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
@@ -55,25 +64,34 @@ class _HomeScreenState extends State<HomeScreen>{
           child: AppBar(
             leading: Padding(
               padding: const EdgeInsets.only(left: 8, top: 8),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(30),
-                child: CachedNetworkImage(
-                  imageUrl: picUrl,
-                  fit: BoxFit.cover,
-                  height: 60,
-                  width: 60,
+              child: GestureDetector(
+                onTap: (){
+                  Get.to(const ProfileScreen());
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: CachedNetworkImage(
+                    imageUrl: picUrl,
+                    fit: BoxFit.cover,
+                    height: 60,
+                    width: 60,
                   ),
+                ),
               ),
             ),
             title: Padding(
               padding: const EdgeInsets.only(top: 5.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text ("Name"),
+                  Text (
+                    AuthController.instance.user!.displayName ?? "Name",
+                    style: TextStyle(color: Colors.white),
+                  ),
                   DropdownButton<String>(
                     value: city,
-                    dropdownColor: MyTheme.statusBar,
+                    dropdownColor: Colors.white,
                     isDense: true,
                     icon: const Icon(Icons.keyboard_arrow_down, color: Colors.white),
                     items: cities
@@ -128,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen>{
                 Padding(
                   padding: const EdgeInsets.only(left: 20, top: 20),
                   child: Text(
-                    "LOẠI PHIM", 
+                    "THỂ LOẠI", 
                     style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black.withOpacity(0.8)),
                   ),
                 ),
@@ -167,13 +185,13 @@ class _HomeScreenState extends State<HomeScreen>{
                   child: GoogleMap(
                     mapType: MapType.normal,
                     initialCameraPosition: _kGooglePlex,
-                    gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>{
+                    gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>[
                       Factory<OneSequenceGestureRecognizer>(
                         () => EagerGestureRecognizer(),
                       )
-                    },
+                    ].toSet(),
                     onMapCreated: (GoogleMapController controller) {
-                      //_controller.complete(controller);
+                      // _controller.complete(controller);
                     },
                     zoomControlsEnabled: false,
                   ),
@@ -210,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen>{
                   events: events,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 10, right: 20),
+                  padding: const EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
                   child: Row(
                     children: [
                       SvgPicture.asset(
@@ -245,6 +263,25 @@ class _HomeScreenState extends State<HomeScreen>{
           ),
         ),
       ),
+    );
+  }
+}
+
+void main() async {
+
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: MyTheme.myLightTheme,
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
     );
   }
 }

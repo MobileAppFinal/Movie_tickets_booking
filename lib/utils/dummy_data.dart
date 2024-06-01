@@ -30,7 +30,7 @@ List<String> cities = [
 
 List<MovieModel> movies = [
   MovieModel(
-    title: "Doraemon - Bản giao hưởng địa cầu", 
+    title: "Doraemon - Bản \ngiao hưởng địa cầu", 
     description: "1", 
     actors: ["Wasabi Mizuta", "Megumi Ohara", "Yumi Kakazu"], 
     like: 98, 
@@ -38,7 +38,7 @@ List<MovieModel> movies = [
   ),
 
   MovieModel(
-    title: "Lật mặt 7: Một điều ước", 
+    title: "Lật mặt 7: \nMột điều ước", 
     description: "2", 
     actors: ["Thanh Hiền", "Trương Minh Cường", "Đinh Y Nhung", "Quách Ngọc Tuyên", "Trâm Anh", "Trần Kim Hải"], 
     like: 91, 
@@ -46,7 +46,7 @@ List<MovieModel> movies = [
   ),
 
   MovieModel(
-    title: "Fast & Furious 9: Huyền thoại tốc độ", 
+    title: "Fast & Furious 9: \nHuyền thoại tốc độ", 
     description: "3", 
     actors: ["Vin Diesel", "Charlize Theron", "John Cena"], 
     like: 90, 
@@ -54,7 +54,7 @@ List<MovieModel> movies = [
   ),
   
   MovieModel(
-    title: "Star Wars 8: Jedi cuối cùng", 
+    title: "Star Wars 8: \nJedi cuối cùng", 
     description: "4", 
     actors: ["Daisy Ridley", "John Boyega", "Mark Hamill"], 
     like: 84, 
@@ -62,7 +62,7 @@ List<MovieModel> movies = [
   ),
 
     MovieModel(
-    title: "Ám ảnh kinh hoàng", 
+    title: "Ám ảnh kinh hoàng\n", 
     description: "5", 
     actors: ["Vera Farmiga", "Patrick Wilson", "Lili Taylo", "Ron Livingston"], 
     like: 84, 
@@ -79,23 +79,23 @@ List<EventModel> events = [
   EventModel(
     title: "Happy Halloween",
     description: "Music show",
-    date: "30/10/2024",
+    date: "31/10/2024",
     bannerUrl: "assets/events/event1.png",
   ),
   EventModel(
-    title: "Music DJ king monger Sert...",
+    title: "Music DJ..",
     description: "Music show",
     date: "01/07/2024",
     bannerUrl: "assets/events/event2.png",
   ),
   EventModel(
-    title: "Summer sounds festiva..",
+    title: "Summer sounds..",
     description: "Comedy show",
     date: "01/06/2024",
     bannerUrl: "assets/events/event3.png",
   ),
   EventModel(
-    title: "DaNang International Firework Festival",
+    title: "DIFF 2024",
     description: "Festival",
     bannerUrl: "assets/events/event4.png",
     date: "08/06/2024",
@@ -111,8 +111,8 @@ List<EventModel> plays = [
     bannerUrl: "assets/plays/play1.png",
   ),
   EventModel(
-    title: "Con trai thì cút - Con gái thì giữ",
-    description: "Phê phán và châm biếm nhiều vấn đề đang diễn ra trong cuộc sống hiện đại",
+    title: "Hai viên ngọc thần",
+    description: "Bài học về cách đối nhân xử thế, trung thực trong cuộc sống",
     date: "04/08/2024",
     bannerUrl: "assets/plays/play2.png",
   ),

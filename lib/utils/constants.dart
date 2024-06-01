@@ -2,7 +2,7 @@
 class Constants {
   static const String baseAssetPath = "assets/";
   static const String baseApiUrl = "";
-  static const String dummyAvatar = "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200";
+  static const String dummyAvatar = "https://www.gravatar.com/avatar/f989f4201eb8cd4f169ebfe6966beb5bfd7cb17edbf4c8e8d937844f499a5384?size=200";
 
   //test env
   static const String createOrderUrl = "https://api.razorpay.com/v1/orders";

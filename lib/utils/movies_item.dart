@@ -45,7 +45,7 @@ class MoviesItems extends StatelessWidget {
                     children: [
                       const Icon(
                         Icons.star, 
-                        color: Color.fromARGB(231, 255, 17, 0),
+                        color: Color.fromARGB(255, 255, 200, 0),
                         ),
                       const SizedBox(
                         width: 5, 
