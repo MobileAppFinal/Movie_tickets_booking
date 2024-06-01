@@ -11,12 +11,14 @@ import '../pages/home_screen.dart';
 
 import '../utils/mytheme.dart';
 
+
 class AuthController extends GetxController {
   static AuthController instance = Get.find();
   late Rx<User?> _user;
   bool isLoging = false;
   User? get user => _user.value;
   final FirebaseAuth auth = FirebaseAuth.instance;
+
 
   @override
   void onReady() {
