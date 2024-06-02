@@ -1,7 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:movie_tickets_booking/pages/home_screen.dart';
+
+
+
 import 'package:movie_tickets_booking/pages/start_screen.dart';
 import 'package:movie_tickets_booking/pages/profile_screen.dart';
 
@@ -14,6 +18,8 @@ void main() async {
   await Firebase.initializeApp();
   Get.put(AuthController());
 
+
+  Get.put(AuthController());
 
   runApp(const MyApp());
 }

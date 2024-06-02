@@ -5,9 +5,12 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:movie_tickets_booking/pages/signup_screen.dart';
 import 'package:movie_tickets_booking/utils/mytheme.dart';
 import 'package:movie_tickets_booking/utils/social_buttons.dart';
+
+import '../controllers/auth_controller.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -18,6 +21,39 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _obscureText = true;
+  final _formKey = GlobalKey<FormState>();
+
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  String? _validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Email cannot be empty";
+    }
+    if (!value.contains('@')) {
+      return "Please enter a valid email";
+    }
+    return null;
+  }
+
+  String? _validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Password cannot be empty";
+    }
+    if (value.length < 6) {
+      return "Password must be at least 6 characters";
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
@@ -106,143 +142,157 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 10),
-                        child: Text(
-                          "Login to your account",
-                          style: TextStyle(
-                            color: MyTheme.splash.withOpacity(0.7),
-                            fontWeight: FontWeight.w600,
-                            fontSize: 20,
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(top: 10),
+                          child: Text(
+                            "Login to your account",
+                            style: TextStyle(
+                              color: MyTheme.splash.withOpacity(0.7),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            hintText: "Email",
-                            hintStyle: const TextStyle(
-                              color: Colors.grey,
-                            ),
-                            prefixIcon: const Icon(
-                              CupertinoIcons.mail,
-                              color: MyTheme.splash,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide.none,
-                            ),
-                            filled: true,
-                            fillColor: MyTheme.greyColor,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: TextFormField(
-                          obscureText: _obscureText,
-                          decoration: InputDecoration(
-                            hintText: "Password",
-                            hintStyle: const TextStyle(
-                              color: Colors.grey,
-                            ),
-                            prefixIcon: const Icon(
-                              CupertinoIcons.lock,
-                              color: MyTheme.splash,
-                            ),
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                _obscureText ? CupertinoIcons.eye : CupertinoIcons.eye_slash,
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: TextFormField(
+                            controller: _emailController,
+                            validator: _validateEmail,
+                            decoration: InputDecoration(
+                              hintText: "Email",
+                              hintStyle: const TextStyle(
+                                color: Colors.grey,
+                              ),
+                              prefixIcon: const Icon(
+                                CupertinoIcons.mail,
                                 color: MyTheme.splash,
                               ),
-                              onPressed: () {
-                                setState(() {
-                                  _obscureText = !_obscureText;
-                                });
-                              },
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none,
+                              ),
+                              filled: true,
+                              fillColor: MyTheme.greyColor,
                             ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide.none,
-                            ),
-                            filled: true,
-                            fillColor: MyTheme.greyColor,
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            TextButton(
-                              onPressed: () {},
-                              child: const Text(
-                                "Forgot Password?",
-                                style: TextStyle(
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: TextFormField(
+                            controller: _passwordController,
+                            validator: _validatePassword,
+                            obscureText: _obscureText,
+                            decoration: InputDecoration(
+                              hintText: "Password",
+                              hintStyle: const TextStyle(
+                                color: Colors.grey,
+                              ),
+                              prefixIcon: const Icon(
+                                CupertinoIcons.lock,
+                                color: MyTheme.splash,
+                              ),
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  _obscureText ? CupertinoIcons.eye : CupertinoIcons.eye_slash,
                                   color: MyTheme.splash,
-                                  fontWeight: FontWeight.w600,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _obscureText = !_obscureText;
+                                  });
+                                },
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none,
+                              ),
+                              filled: true,
+                              fillColor: MyTheme.greyColor,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  "Forgot Password?",
+                                  style: TextStyle(
+                                    color: MyTheme.splash,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  AuthController.instance.login(
+                                    _emailController.text.trim(),
+                                    _passwordController.text.trim(),
+                                  );
+                                }
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: MyTheme.splash,
+                                padding: const EdgeInsets.all(15),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              child: const Text(
+                                "Login",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: MyTheme.splash,
-                              padding: const EdgeInsets.all(15),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                            child: const Text(
-                              "Login",
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(15),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Divider(
-                                color: Colors.black.withOpacity(0.3)
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 5),
-                              child: Text( "Or"),
-                            ),
-                            Expanded(
-                              child: Divider(
+                        Padding(
+                          padding: const EdgeInsets.all(15),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Divider(
                                   color: Colors.black.withOpacity(0.3)
+                                ),
                               ),
-                            )
-                          ]
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 5),
+                                child: Text( "Or"),
+                              ),
+                              Expanded(
+                                child: Divider(
+                                    color: Colors.black.withOpacity(0.3)
+                                ),
+                              )
+                            ]
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10, bottom: 10),
-                        child: SocialLoginButtons(onGoogleClick: (){}, onFacebookClick: (){}),
-                      )
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10, bottom: 10),
+                          child: SocialLoginButtons(onGoogleClick: (){}, onFacebookClick: (){}),
+                        )
+                      ],
+                    ),
                   ),
                 ),
             Padding(
@@ -266,7 +316,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const SignupScreen()));
+                        // Navigator.push(context, MaterialPageRoute(builder: (context) => const SignupScreen()));
+
+                        Get.to(SignupScreen());
                       },
                   ),
                   TextSpan(

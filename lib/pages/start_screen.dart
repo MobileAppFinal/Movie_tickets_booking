@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:movie_tickets_booking/utils/mytheme.dart';
 import 'package:movie_tickets_booking/pages/login_screen.dart';
 
@@ -30,10 +31,11 @@ class _StartScreenState extends State<StartScreen> with SingleTickerProviderStat
     _animation = CurvedAnimation(parent: _animationController, curve: Curves.bounceOut, reverseCurve: Curves.bounceInOut);
     _animationController.forward();
 
-    Timer(const Duration(seconds: 5 ), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const LoginScreen() ));
-
-    });
+    // Timer(const Duration(seconds: 5 ), () {
+    //   // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const LoginScreen() ));
+    //
+    //   Get.to(LoginScreen());
+    // });
   }
 
   @override

@@ -5,6 +5,8 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:movie_tickets_booking/controllers/auth_controller.dart';
 import 'package:movie_tickets_booking/utils/mytheme.dart';
 import 'package:movie_tickets_booking/utils/social_buttons.dart';
 
@@ -20,11 +22,16 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   bool _obscureText = true;
   final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
 
   @override
   void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
     _confirmPasswordController.dispose();
     super.dispose();
@@ -144,6 +151,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         padding: const EdgeInsets.only(top: 10),
                         child: TextFormField(
                           validator: _validateName,
+                          controller: _nameController,
                           decoration: _buildInputDecoration("Name", CupertinoIcons.person)
                         ),
                       ),
@@ -151,6 +159,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         padding: const EdgeInsets.only(top: 10),
                         child: TextFormField(
                           validator: _validateEmail,
+                          controller: _emailController,
                           decoration: _buildInputDecoration("Email", CupertinoIcons.mail)
                         ),
                       ),
@@ -177,9 +186,12 @@ class _SignupScreenState extends State<SignupScreen> {
                         child: SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () {
+                            onPressed: (){
                               if (_formKey.currentState!.validate()) {
-                                // Proceed with signup
+                                AuthController.instance.registerUser(
+                                  _emailController.text.trim(),
+                                  _passwordController.text.trim(),
+                                );
                               }
                             },
                             style: ElevatedButton.styleFrom(
@@ -297,7 +309,8 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  Navigator.pop(context);
+                  // Navigator.pop(context);
+                  Get.back();
                 },
             ),
             TextSpan(
