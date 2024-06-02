@@ -9,7 +9,7 @@ class EventItems extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Container(
-      height: 230 ,
+      height: 200 ,
       width: size.width,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -42,10 +42,10 @@ class EventItems extends StatelessWidget {
                       fontSize: 12,
                       color: Colors.black.withOpacity(0.6)),
                   ),
-                  Text(
-                    events[i].description,   
-                    style: const TextStyle(fontSize: 10),                     
-                  ),
+                  // Text(
+                  //   events[i].description,   
+                  //   style: const TextStyle(fontSize: 10),                     
+                  // ),
                 ],
               ),
             ),

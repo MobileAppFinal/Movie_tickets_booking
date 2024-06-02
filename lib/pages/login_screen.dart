@@ -61,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
       statusBarColor: Colors.transparent,
     ));
     return Scaffold(
-      backgroundColor: MyTheme.splash,
+      backgroundColor: Color.fromARGB(255, 93, 26, 113),
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
