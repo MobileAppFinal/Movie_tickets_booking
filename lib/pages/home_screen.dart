@@ -14,6 +14,8 @@ import 'package:movie_tickets_booking/utils/mytheme.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import '../controllers/auth_controller.dart';
+import '../controllers/location_controller.dart';
+import '../controllers/shared_pref.dart';
 import '../utils/dummy_data.dart';
 import '../utils/constants.dart';
 import '../utils/custom_slider.dart';
@@ -40,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen>{
 
 @override
   void initState() {
-  //  SharedPref.getLocation().then((value) => LocationController.instance.setCity(value));
+    SharedPref.getLocation().then((value) => LocationController.instance.setCity(value));
     super.initState();
   }
 
@@ -57,7 +59,6 @@ class _HomeScreenState extends State<HomeScreen>{
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: MyTheme.statusBar));
     String? picUrl = AuthController.instance.user!.photoURL;
     picUrl = picUrl ?? Constants.dummyAvatar;
-    // String? picUrl = Constants.dummyAvatar;
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
@@ -145,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen>{
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 20),
+                  padding: const EdgeInsets.only(left: 20.0, top: 20),
                   child: Text(
                     "THỂ LOẠI", 
                     style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black.withOpacity(0.8)),
@@ -162,7 +163,7 @@ class _HomeScreenState extends State<HomeScreen>{
                 const MoviesItems(),
 
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 10, right: 20),
+                  padding: const EdgeInsets.only(left: 20.0, top: 10, right: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -186,11 +187,11 @@ class _HomeScreenState extends State<HomeScreen>{
                   child: GoogleMap(
                     mapType: MapType.normal,
                     initialCameraPosition: _kGooglePlex,
-                    gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>[
+                    gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>{
                       Factory<OneSequenceGestureRecognizer>(
                         () => EagerGestureRecognizer(),
                       )
-                    ].toSet(),
+                    },
                     onMapCreated: (GoogleMapController controller) {
                       // _controller.complete(controller);
                     },
@@ -198,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen>{
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 10, right: 20),
+                  padding: const EdgeInsets.only(left: 20.0, top: 10, right: 20),
                   child: Row(
                     children: [
                       SvgPicture.asset(
@@ -229,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen>{
                   events: events,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
+                  padding: const EdgeInsets.only(left: 20.0, top: 10, right: 20, bottom: 10),
                   child: Row(
                     children: [
                       SvgPicture.asset(
@@ -269,22 +270,22 @@ class _HomeScreenState extends State<HomeScreen>{
 }
 
 
-void main() async {
+// void main() async {
 
-  runApp(const MyApp());
-}
+//   runApp(const MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: MyTheme.myLightTheme,
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
-    );
-  }
-}
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       theme: MyTheme.myLightTheme,
+//       debugShowCheckedModeBanner: false,
+//       home: HomeScreen(),
+//     );
+//   }
+// }
 
