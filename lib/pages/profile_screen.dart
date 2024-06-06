@@ -67,8 +67,9 @@ class _ProfileScreenState extends State<ProfileScreen>
             NotificationListener<ScrollNotification>(
               onNotification: (notification) {
                 if(notification.metrics.pixels == notification.metrics.maxScrollExtent){
-                  
-                  _animationController.forward();                  
+
+                  _animationController.forward();
+
                 } else if(notification.metrics.pixels == notification.metrics.minScrollExtent*0.5){
                   _animationController.reverse();
                 }
@@ -98,7 +99,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                       child: Text("Tên"),
                     ),
                     Obx(
-                      () => Padding(
+                          () => Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
                         child: TextFormField(
                           readOnly: ProfileController.instance.isEdit.value,
@@ -180,7 +181,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                       child: Text("Số điện thoại"),
                     ),
                     Obx(
-                      () => Padding(
+                          () => Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
                         child: TextFormField(
                           readOnly: ProfileController.instance.isEdit.value,
