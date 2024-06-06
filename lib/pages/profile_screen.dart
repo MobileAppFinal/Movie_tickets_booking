@@ -69,6 +69,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                 if(notification.metrics.pixels == notification.metrics.maxScrollExtent){
 
                   _animationController.forward();
+
                 } else if(notification.metrics.pixels == notification.metrics.minScrollExtent*0.5){
                   _animationController.reverse();
                 }
