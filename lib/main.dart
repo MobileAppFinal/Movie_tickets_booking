@@ -12,7 +12,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   Get.put(AuthController());
-  Get.put(LocationController());
+  //Get.put(LocationController());
 
   runApp(const MyApp());
 }
