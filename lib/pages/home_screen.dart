@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen>{
 
 @override
   void initState() {
-    SharedPref.getLocation().then((value) => LocationController.instance.setCity(value));
+    //SharedPref.getLocation().then((value) => LocationController.instance.setCity(value));
     super.initState();
   }
 
