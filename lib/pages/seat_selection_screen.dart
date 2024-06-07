@@ -102,8 +102,8 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
             () => Center(
               child: Text(
                 SeatSelectionController.instance.isSeatSelection.value
-                    ? "Thanh toán ${SeatSelectionController.instance.seatPrice.value}đ"
-                    : "Chọn ghế",
+                    ?  "Thanh toán ${SeatSelectionController.instance.seatPrice.value}đ"
+                    :"Chọn ghế",
                 style: const TextStyle(fontSize: 18, color: Colors.white,),
               ),
             ),
@@ -139,9 +139,9 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: bottomBar(toggle: SeatSelectionController.instance.isSeatSelection),
+      bottomNavigationBar: bottomBar(toggle: SeatSelectionController.instance.toggleSelection),
       backgroundColor: const Color(0xFFF5F5FA),
-      appBar: myAppBar(toggle: SeatSelectionController.instance.isSeatSelection),
+      appBar: myAppBar(toggle: SeatSelectionController.instance.toggleSelection),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

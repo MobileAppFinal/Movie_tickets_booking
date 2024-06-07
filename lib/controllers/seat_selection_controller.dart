@@ -22,6 +22,13 @@ class SeatSelectionController extends GetxController {
   static const String _chars = '1234567890';
   final Random _rnd = Random();
 
+
+  void toggleSelection(bool isSelected) {
+    isSeatSelection.value = isSelected;
+    update();
+  }
+
+
   @override
   void onReady() {
     super.onReady();
@@ -75,17 +82,24 @@ class SeatSelectionController extends GetxController {
     _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
     _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
     _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
+
     var options = {
       'key': Constants.keyId,
       'amount': seatPrice * 100, //in the smallest currency sub-unit.
-      'name': 'Find Seat',
-      'order_id': orderId, // Generate order_id using Orders API
+      'name': 'Movie Tickets',
+      'order_id': orderId, // Generated order_id using Orders API
       'description': 'Movie Ticket Amount',
       'timeout': 300, // in seconds
       'prefill': {
         'contact': AuthController.instance.user!.phoneNumber ?? '9876543210',
         'email': AuthController.instance.user!.email,
-      }
+      },
+      'theme': {
+        'color': '#87CEFA', // Customize the color scheme
+        'backdrop_color': '#00BFFF', // Background color of the payment form
+        'image_padding': '25px', // Padding for your logo image
+      },
+      'image': 'assets/icons/film.svg', // URL of your logo
     };
 
     _razorpay.open(options);

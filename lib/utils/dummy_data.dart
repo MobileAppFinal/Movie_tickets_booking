@@ -154,9 +154,9 @@ final seatLayout = SeatLayoutModel(
     rows: 10,
     cols: 11,
     seatTypes: [
-      {"title": "Ghế đôi", "giá": 120.0, "tình trạng": "Hết nhanh"},
-      {"title": "Ghế VIP", "giá": 100.0, "tình trạng": "Còn"},
-      {"title": "Ghế đơn", "giá": 80.0, "trình trạng": "Còn"},
+      {"title": "Ghế đôi", "price": 120.0, "status": "Hết nhanh"},
+      {"title": "Ghế VIP", "price": 100.0, "status": "Còn"},
+      {"title": "Ghế đơn", "price": 80.0, "status": "Còn"},
     ],
     theatreId: 123,
     gap: 2,
