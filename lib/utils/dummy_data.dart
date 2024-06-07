@@ -1,3 +1,4 @@
+import 'package:movie_tickets_booking/model/seat_layout_model.dart';
 import 'package:movie_tickets_booking/model/event_model.dart';
 import 'package:movie_tickets_booking/model/movie_model.dart';
 import '../model/theatre_model.dart';
@@ -148,6 +149,20 @@ List<String> facilityAsset = [
   "assets/icons/rocking_horse.svg",
 ];
 
+
+final seatLayout = SeatLayoutModel(
+    rows: 10,
+    cols: 11,
+    seatTypes: [
+      {"title": "King", "price": 120.0, "status": "Filling Fast"},
+      {"title": "Queen", "price": 100.0, "status": "Available"},
+      {"title": "Jack", "price": 80.0, "status": "Available"},
+    ],
+    theatreId: 123,
+    gap: 2,
+    gapColIndex: 5,
+    isLastFilled: true,
+    rowBreaks: [5, 3, 2]);
 
 List<CrewCastModel> crewCast = [
   CrewCastModel(

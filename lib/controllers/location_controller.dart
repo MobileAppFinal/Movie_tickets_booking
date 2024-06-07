@@ -1,8 +1,6 @@
-
 import 'package:geocoding/geocoding.dart' as geo;
 import 'package:get/get.dart';
 import 'package:location/location.dart';
-
 import 'shared_pref.dart';
 import '../utils/dummy_data.dart';
 
