@@ -7,13 +7,14 @@ import 'package:movie_tickets_booking/utils/mytheme.dart';
 
 import 'controllers/auth_controller.dart';
 import 'controllers/location_controller.dart';
+import 'controllers/common_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   Get.put(AuthController());
-  //Get.put(LocationController());
-
+  Get.put(LocationController());
+  Get.put(CommonController());
   runApp(const MyApp());
 }
 
