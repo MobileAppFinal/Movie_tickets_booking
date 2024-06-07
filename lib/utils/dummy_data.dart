@@ -1,6 +1,9 @@
 import 'package:movie_tickets_booking/model/event_model.dart';
 import 'package:movie_tickets_booking/model/movie_model.dart';
-
+import '../model/theatre_model.dart';
+import '../model/crew_cast_model.dart';
+import '../model/offer_model.dart';
+import '../utils/mytheme.dart';
 import '../model/ad_slider_model.dart';
 import '../model/menu_model.dart';
 import '../utils/constants.dart';
@@ -20,6 +23,8 @@ List<MenuModel> menus = [
   MenuModel(name: "Công trình", asset: "assets/icons/pyramid.svg"),
 ];
 
+
+
 List<String> cities = [
   "Đà Nẵng",
   "TP Hồ Chí Minh",
@@ -30,16 +35,16 @@ List<String> cities = [
 
 List<MovieModel> movies = [
   MovieModel(
-    title: "Doraemon - Bản \ngiao hưởng địa cầu", 
-    description: "1", 
+    title: "Black Panther \nThe King", 
+    description: "Sự trở lại của Chiến binh Báo đen", 
     actors: ["Wasabi Mizuta", "Megumi Ohara", "Yumi Kakazu"], 
     like: 98, 
-    bannerUrl: "assets/movies/doraemon.png",
+    bannerUrl: "assets/movies/black_panther.jpg",
   ),
 
   MovieModel(
     title: "Lật mặt 7: \nMột điều ước", 
-    description: "2", 
+    description: "Điều ước của Mẹ", 
     actors: ["Thanh Hiền", "Trương Minh Cường", "Đinh Y Nhung", "Quách Ngọc Tuyên", "Trâm Anh", "Trần Kim Hải"], 
     like: 91, 
     bannerUrl: "assets/movies/latmat7.png",
@@ -47,7 +52,7 @@ List<MovieModel> movies = [
 
   MovieModel(
     title: "Fast & Furious 9: \nHuyền thoại tốc độ", 
-    description: "3", 
+    description: "Huyền thoại quay trở lại", 
     actors: ["Vin Diesel", "Charlize Theron", "John Cena"], 
     like: 90, 
     bannerUrl: "assets/movies/fast&furious.png",
@@ -55,7 +60,7 @@ List<MovieModel> movies = [
   
   MovieModel(
     title: "Star Wars 8: \nJedi cuối cùng", 
-    description: "4", 
+    description: "Jedi cuối cùng xuất hiện", 
     actors: ["Daisy Ridley", "John Boyega", "Mark Hamill"], 
     like: 84, 
     bannerUrl: "assets/movies/star_wars.png",
@@ -63,7 +68,7 @@ List<MovieModel> movies = [
 
     MovieModel(
     title: "Ám ảnh kinh hoàng\n", 
-    description: "5", 
+    description: "Câu chuyện chưa kể về ngôi nhà ma ám", 
     actors: ["Vera Farmiga", "Patrick Wilson", "Lili Taylo", "Ron Livingston"], 
     like: 84, 
     bannerUrl: "assets/movies/conjuring.png",
@@ -77,7 +82,7 @@ List<String> screens = [
 
 List<EventModel> events = [
   EventModel(
-    title: "Happy Halloween",
+    title: "Tết thiếu nhi",
     description: "Music show",
     date: "31/10/2024",
     bannerUrl: "assets/events/event1.png",
@@ -129,3 +134,68 @@ List<EventModel> plays = [
     date: "04/08/2024",
   ),
 ];
+List<TheatreModel> theatres = [
+  TheatreModel(id: "1", name: "CGV Vincom"),
+  TheatreModel(id: "2", name: "Galaxy"),
+  TheatreModel(id: "3", name: "Metiz"),
+  TheatreModel(id: "4", name: "Starlight"),
+];
+
+List<String> facilityAsset = [
+  "assets/icons/cancel.svg",
+  "assets/icons/parking.svg",
+  "assets/icons/cutlery.svg",
+  "assets/icons/rocking_horse.svg",
+];
+
+
+List<CrewCastModel> crewCast = [
+  CrewCastModel(
+    movieId: "123",
+    castId: "123",
+    name: "Chadwick",
+    image: "assets/actors/chadwick.png",
+  ),
+  CrewCastModel(
+    movieId: "123",
+    castId: "123",
+    name: "Letitia Wright",
+    image: "assets/actors/LetitiaWright.png",
+  ),
+  CrewCastModel(
+    movieId: "123",
+    castId: "123",
+    name: "B. Jordan",
+    image: "assets/actors/b_jordan.png",
+  ),
+  CrewCastModel(
+    movieId: "123",
+    castId: "123",
+    name: "Lupita Nyong",
+    image: "assets/actors/lupita_nyong.png",
+  ),
+];
+
+List<OfferModel> offers = [
+  OfferModel(
+    title: "FREE NƯỚC",
+    description: "Mua 1 Vé Tặng 1 Nước",
+    expiry: DateTime(2024, 4, 15, 12),
+    startTime: DateTime(2024, 3, 15, 12),
+    discount: 100,
+    color: MyTheme.redTextColor,
+    gradientColor: MyTheme.redGiftGradientColors,
+  ),
+  OfferModel(
+    title: "TÍCH ĐIỂM",
+    description: "Đặt Vé để tích điểm",
+    expiry: DateTime(2024, 4, 15, 12),
+    startTime: DateTime(2024, 3, 15, 12),
+    discount: 100,
+    color: MyTheme.greenTextColor,
+    gradientColor: MyTheme.greenGiftGradientColors,
+    icon: "gift_green.svg",
+  ),  
+];
+
+final List<int> s = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
