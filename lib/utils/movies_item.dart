@@ -25,7 +25,7 @@ class MoviesItems extends StatelessWidget {
               model: movies[i],
               isMovie: true,
               onTap: (model) {
-                Get.to(() => DetailsScreen(), arguments: [movies[i], i]);
+                Get.to(() => DetailsScreen(movieModel: movies[i],), arguments: [movies[i], i]);
               },
             ),
           );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:movie_tickets_booking/utils/dummy_data.dart';
+import '../model/movie_model.dart';
 import '../pages/list_cinema_screen.dart';
 import '../widgets/cast_crew_block.dart';
 import '../widgets/offers_block.dart';
@@ -8,17 +10,19 @@ import '../widgets/review_block.dart';
 import '../utils/mytheme.dart';
 
 class DetailsScreen extends StatelessWidget {
-  DetailsScreen({Key? key}) : super(key: key);
+  DetailsScreen({Key? key, required this.movieModel}) : super(key: key);
 
   final dynamic model = Get.arguments[0];
   final int index = Get.arguments[1];
+  final MovieModel movieModel ;
+
 
   titleWidget(model) => Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
-            "Black Panther -  The King",
-            style: TextStyle(
+           Text(
+            movieModel.title,
+            style: const TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 18,
             ),
@@ -138,6 +142,7 @@ class DetailsScreen extends StatelessWidget {
     ),
   );
 
+
   Widget block1(model) => Container(
         color: Colors.white,
         width: double.maxFinite,
@@ -151,16 +156,16 @@ class DetailsScreen extends StatelessWidget {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
+              children: [
+                const Text(
                   "15/10/2024",
                   style: TextStyle(
                     color: Colors.black45,
                   ),
                 ),
                 Text(
-                  "1.8K votes",
-                  style: TextStyle(
+                  "${movieModel.like.toString()} lượt thích",
+                  style: const TextStyle(
                     color: MyTheme.splash,
                   ),
                 ),
@@ -190,6 +195,13 @@ class DetailsScreen extends StatelessWidget {
               ),
             );
           },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: MyTheme.splash,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(0),
+            ),
+          ),
           child: Container(
             width: double.maxFinite,
             height: 50,
@@ -207,18 +219,11 @@ class DetailsScreen extends StatelessWidget {
                 const Text(
                   "Đặt Vé",
                   style: TextStyle(
-                    fontSize: 18, 
+                    fontSize: 18,
                     color: Colors.white,
-                  ),                  
+                  ),
                 ),
               ],
-            ),
-          ),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: MyTheme.splash,
-            elevation: 0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(0),
             ),
           ),
         ),
@@ -236,7 +241,7 @@ class DetailsScreen extends StatelessWidget {
             ),
             title: Text(
               model.title, 
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18, 
                 color: Colors.white,
               ),
@@ -247,11 +252,11 @@ class DetailsScreen extends StatelessWidget {
               background: Hero(
                 tag: "${model.title}$index",
                 child: Container(
-                  decoration: const BoxDecoration(
+                  decoration:  BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: AssetImage(
-                        "assets/movie_banner.png",
+                        movieModel.bannerUrl,
                       ),
                     ),
                   ),
