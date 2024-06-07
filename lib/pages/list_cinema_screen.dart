@@ -28,7 +28,7 @@ class _ListCinemaScreenState extends State<ListCinemaScreen> {
 
   String selectedDate = DateFormat("dd MMM").format(DateTime.now());
 
-  String selectedLanguage = "English";
+  String selectedLanguage = "Tiếng Việt";
 
   String selectedScreen = "3D";
   late CalendarController commonController;
@@ -51,7 +51,7 @@ class _ListCinemaScreenState extends State<ListCinemaScreen> {
       child: Scaffold(
         backgroundColor: const Color(0xFFF5F5FA),
         bottomNavigationBar: BottomAppBar(
-          color: MyTheme.appBarColor,
+          color: MyTheme.splash,
           elevation: 0,
           child: Container(
             width: double.maxFinite,
@@ -67,9 +67,9 @@ class _ListCinemaScreenState extends State<ListCinemaScreen> {
                       String text = "";
 
                       if (selectedDate == todayDate) {
-                        text = "Today, ";
+                        text = "Hôm nay, ";
                       } else if (selectedDate == tomorrowDate) {
-                        text = "Tomorrow, ";
+                        text = "Ngày mai, ";
                       } else {
                         text = DateFormat("EEE").format(commonController.selectedMovieDate.value) + ", ";
                       }

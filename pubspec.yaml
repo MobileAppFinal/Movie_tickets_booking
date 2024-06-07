@@ -83,7 +83,7 @@ flutter:
     - assets/movies/
     - assets/events/
     - assets/plays/
-  #   - assets/actors/
+    - assets/actors/
 
 
 

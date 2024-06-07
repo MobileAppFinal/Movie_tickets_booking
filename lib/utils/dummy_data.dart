@@ -11,7 +11,7 @@ import '../utils/constants.dart';
 
 List<AdSliderModel> sliderData = [
   AdSliderModel(url: "assets/slider_banner.png", redirectUrl: Constants.baseApiUrl),
-  AdSliderModel(url: "assets/slider_banner.png", redirectUrl: Constants.baseApiUrl),
+  AdSliderModel(url: "assets/slider_banner2.png", redirectUrl: Constants.baseApiUrl),
   AdSliderModel(url: "assets/slider_banner.png", redirectUrl: Constants.baseApiUrl),
 ];
 
@@ -112,25 +112,25 @@ List<EventModel> events = [
 List<EventModel> plays = [
   EventModel(
     title: "Trái tim người Hà Nội",
-    description: "Hành trình tìm lại quá khứ, tìm lại cuộc sống của Kiên - một người lính trở về từ cuộc chiến tranh tàn khốc",
+    description: "Hành trình tìm lại quá khứ..",
     date: "03/08/2024",
     bannerUrl: "assets/plays/play1.png",
   ),
   EventModel(
     title: "Hai viên ngọc thần",
-    description: "Bài học về cách đối nhân xử thế, trung thực trong cuộc sống",
+    description: "Bài học về cách đối nhân xử..",
     date: "04/08/2024",
     bannerUrl: "assets/plays/play2.png",
   ),
   EventModel(
     title: "Thúy Kiều - Một kiếp đoạn trường",
-    description: "Khắc hoạ một bức tranh hoàn chỉnh nhất về cuộc đời hồng nhan bạc phận của nàng Thuý Kiều nhiều kiếp truân chuyên ...",
+    description: "Khắc hoạ một bức tranh hoàn..",
     date: "05/08/2024",
     bannerUrl: "assets/plays/play3.png",
   ),
   EventModel(
     title: "Mảnh đất lắm người nhiều ma",
-    description: "Vì việc chia đất ruộng ở xã, các phe đấu đá nhau chí tử để tranh đất tốt mà mới xảy ra những chuyện mâu thuẫn ...",
+    description: "Vì việc chia đất ruộng ở xã..",
     bannerUrl: "assets/plays/play4.png",
     date: "04/08/2024",
   ),
@@ -154,9 +154,9 @@ final seatLayout = SeatLayoutModel(
     rows: 10,
     cols: 11,
     seatTypes: [
-      {"title": "King", "price": 120.0, "status": "Filling Fast"},
-      {"title": "Queen", "price": 100.0, "status": "Available"},
-      {"title": "Jack", "price": 80.0, "status": "Available"},
+      {"title": "Ghế đôi", "giá": 120.0, "tình trạng": "Hết nhanh"},
+      {"title": "Ghế VIP", "giá": 100.0, "tình trạng": "Còn"},
+      {"title": "Ghế đơn", "giá": 80.0, "trình trạng": "Còn"},
     ],
     theatreId: 123,
     gap: 2,

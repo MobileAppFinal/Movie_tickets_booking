@@ -46,7 +46,7 @@ class _SelectionLocationScreenState extends State<SelectionLocationScreen> {
               width: 15,
             ),
             Text(
-              "My Current Location",
+              "Địa chỉ hiện tại của tôi",
               style: TextStyle(color: Colors.black45, fontSize: 16),
             ),
           ],
@@ -86,9 +86,9 @@ class _SelectionLocationScreenState extends State<SelectionLocationScreen> {
             () {
               return LoadingOverlay(
                 isLoading: LocationController.instance.isLocating.value,
-                color: MyTheme.statusBar,
+                color: MyTheme.splash,
                 progressIndicator: const CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation(MyTheme.appBarColor),
+                  valueColor: AlwaysStoppedAnimation(MyTheme.splash),
                 ),
                 opacity: 0.3,
                 child: Container(
@@ -131,7 +131,7 @@ class _SelectionLocationScreenState extends State<SelectionLocationScreen> {
                               borderRadius: BorderRadius.circular(5),
                               borderSide: BorderSide.none,
                             ),
-                            hintText: "Search",
+                            hintText: "Tìm kiếm",
                             prefixIconConstraints: const BoxConstraints(
                               maxHeight: 50,
                               maxWidth: 50,

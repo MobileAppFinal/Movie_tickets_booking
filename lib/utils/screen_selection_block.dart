@@ -23,7 +23,7 @@ class ScreenSelectionBlock extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(20),
             child: Text(
-              "Tamil ${controller.screen.value}",
+              "${controller.screen.value}",
               style: const TextStyle(fontSize: 16),
             ),
           ),

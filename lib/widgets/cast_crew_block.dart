@@ -18,7 +18,7 @@ class CrewCastBlock extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
-                "Crew & Casts",
+                "Diễn viên",
                 style: TextStyle(
                   fontSize: 14,
                 ),
@@ -26,7 +26,7 @@ class CrewCastBlock extends StatelessWidget {
               TextButton(
                 onPressed: () {},
                 child: const Text(
-                  "View All >",
+                  "Xem tất cả >",
                   style: TextStyle(
                     color: MyTheme.splash,
                   ),

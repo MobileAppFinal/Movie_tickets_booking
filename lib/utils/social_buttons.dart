@@ -23,10 +23,10 @@ class SocialLoginButtons extends StatelessWidget {
            child: InkWell(
              onTap: onGoogleClick,
              child: Padding(
-               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                child: Row(
                   children: [
-                    SvgPicture.asset('assets/icons/google.svg', height: 30),
+                    SvgPicture.asset('assets/icons/google.svg', height: 25),
                     const SizedBox(width: 10),
                     const Text('Google', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                   ],
@@ -35,7 +35,7 @@ class SocialLoginButtons extends StatelessWidget {
             ),
          ),
         ),
-        const SizedBox(width: 10),
+        const SizedBox(width: 5),
         Expanded(
           child: Material(
             color: MyTheme.blueLight,
@@ -47,7 +47,7 @@ class SocialLoginButtons extends StatelessWidget {
             child: InkWell(
               onTap: onFacebookClick,
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                 child: Row(
                   children: [
                     SvgPicture.asset('assets/icons/facebook.svg', height: 30),

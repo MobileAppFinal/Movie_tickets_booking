@@ -21,7 +21,7 @@ class ReviewBlock extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
-                "1043 reviews",
+                "43 reviews",
                 style: TextStyle(
                   fontSize: 14,
                 ),
@@ -29,7 +29,7 @@ class ReviewBlock extends StatelessWidget {
               TextButton(
                 onPressed: () {},
                 child: const Text(
-                  "Write yours >",
+                  "Viết cảm nhận của bạn >",
                   style: TextStyle(
                     color: MyTheme.splash,
                   ),
@@ -61,7 +61,7 @@ class ReviewBlock extends StatelessWidget {
                     ),
                   ),
                   const TextSpan(
-                    text: "04 April, 2022",
+                    text: "04 April, 2024",
                     style: TextStyle(
                       color: Colors.black45,
                     ),
@@ -70,7 +70,7 @@ class ReviewBlock extends StatelessWidget {
               ),
             ),
             subtitle:
-                Text("With all the updates after the last few months the app has improved a lot. Keeps me up to date."),
+                Text("Với tất cả các bản cập nhật sau vài tháng qua, ứng dụng đã được cải thiện rất nhiều."),
           ),
         ],
       ),

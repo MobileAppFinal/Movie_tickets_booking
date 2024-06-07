@@ -22,6 +22,7 @@ class DetailsScreen extends StatelessWidget {
               fontWeight: FontWeight.w600,
               fontSize: 18,
             ),
+            
           ),
           Row(
             children: [
@@ -116,7 +117,7 @@ class DetailsScreen extends StatelessWidget {
         ),
         WidgetSpan(
           child: SvgPicture.asset(
-            "assets/icons/theater_masks.svg",
+            "assets/icons/film.svg",
             height: 15,
             width: 15,
             color: Colors.black45,
@@ -205,7 +206,10 @@ class DetailsScreen extends StatelessWidget {
                 ),
                 const Text(
                   "Đặt Vé",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(
+                    fontSize: 18, 
+                    color: Colors.white,
+                  ),                  
                 ),
               ],
             ),
@@ -223,14 +227,20 @@ class DetailsScreen extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         slivers: [
           SliverAppBar(
-            backgroundColor: MyTheme.appBarColor,
+            backgroundColor: const Color.fromARGB(255, 255, 255, 255),
             leading: IconButton(
               onPressed: () {
                 Get.back();
               },
               icon: const Icon(Icons.arrow_back),
             ),
-            title: Text(model.title),
+            title: Text(
+              model.title, 
+              style: TextStyle(
+                fontSize: 18, 
+                color: Colors.white,
+              ),
+            ),
             pinned: true,
             expandedHeight: 200,
             flexibleSpace: FlexibleSpaceBar(

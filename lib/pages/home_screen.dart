@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen>{
   @override
   Widget build(BuildContext context){
     final Size size = MediaQuery.of(context).size;
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: MyTheme.statusBar));
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: MyTheme.splash));
     String? picUrl = AuthController.instance.user!.photoURL;
     picUrl = picUrl ?? Constants.dummyAvatar;
     return SafeArea(
@@ -189,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen>{
                       )
                     },
                     onMapCreated: (GoogleMapController controller) {
-                      // _controller.complete(controller);
+                      //_controller.complete(controller);
                     },
                     zoomControlsEnabled: false,
                   ),

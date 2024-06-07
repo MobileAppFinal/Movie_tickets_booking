@@ -93,12 +93,12 @@ class SeatSelectionController extends GetxController {
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
     // Do something when payment succeeds
-    AuthController.instance.getSuccessSnackBar("Payment Success for order Id : ${response.orderId}");
+    AuthController.instance.getSuccessSnackBar("Thanh toán thành công cho Id : ${response.orderId}");
   }
 
   void _handlePaymentError(PaymentFailureResponse response) {
     // Do something when payment fails
-    AuthController.instance.getErrorSnackBarNew("Payment failed : ${response.message}");
+    AuthController.instance.getErrorSnackBarNew("Thanh toán thất bại : ${response.message}");
   }
 
   void _handleExternalWallet(ExternalWalletResponse response) {

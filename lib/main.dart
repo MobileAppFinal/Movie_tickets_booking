@@ -25,8 +25,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: MyTheme.myLightTheme,
+      theme: ThemeData(
+        //MyTheme.myLightTheme,
+        appBarTheme: AppBarTheme(
+          backgroundColor: MyTheme.splash,
+          foregroundColor: Colors.white,
+        ),
+      ),
+      
       debugShowCheckedModeBanner: false,
+      
       home:const StartScreen(),
     );
   }

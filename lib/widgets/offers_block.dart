@@ -70,7 +70,7 @@ class OffersBlock extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            "Your Offers",
+            "Ưu đãi cho bạn",
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w600,

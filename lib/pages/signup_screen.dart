@@ -39,37 +39,37 @@ class _SignupScreenState extends State<SignupScreen> {
 
   String? _validateName(String? value) {
     if (value == null || value.isEmpty) {
-      return "Name cannot be empty";
+      return "Tên không thể để trống";
     }
     return null;
   }
 
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) {
-      return "Email cannot be empty";
+      return "Email không thể để trống";
     }
     if (!value.contains('@')) {
-      return "Please enter a valid email";
+      return "Vui lòng nhập email hợp lệ";
     }
     return null;
   }
 
   String? _validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return "Password cannot be empty";
+      return "Mật khẩu không thể để trống";
     }
     if (value.length < 6) {
-      return "Password must be at least 6 characters";
+      return "Mật khẩu ít nhất 6 ký tự";
     }
     return null;
   }
 
   String? _validateConfirmPassword(String? value) {
     if (value == null || value.isEmpty) {
-      return "Confirm Password cannot be empty";
+      return "Xác nhận mật khẩu không thể để trống";
     }
     if (value != _passwordController.text) {
-      return "Passwords do not match";
+      return "Mật khẩu không khớp";
     }
     return null;
   }
@@ -139,7 +139,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       Padding(
                         padding: EdgeInsets.only(top: 10),
                         child: Text(
-                          "Create your account",
+                          "Tạo tài khoản",
                           style: TextStyle(
                             color: MyTheme.splash.withOpacity(0.7),
                             fontWeight: FontWeight.w600,
@@ -152,7 +152,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         child: TextFormField(
                           validator: _validateName,
                           controller: _nameController,
-                          decoration: _buildInputDecoration("Name", CupertinoIcons.person)
+                          decoration: _buildInputDecoration("Tên", CupertinoIcons.person)
                         ),
                       ),
                       Padding(
@@ -169,7 +169,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           validator: _validatePassword,
                           controller: _passwordController,
                           obscureText: _obscureText,
-                          decoration: _buildPasswordDecoration("Password"),
+                          decoration: _buildPasswordDecoration("Mật khẩu"),
                         ),
                       ),
                       Padding(
@@ -178,7 +178,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           validator: _validateConfirmPassword,
                           controller: _confirmPasswordController,
                           obscureText: _obscureText,
-                          decoration: _buildPasswordDecoration("Confirm Password"),
+                          decoration: _buildPasswordDecoration("Nhập lại mật khẩu"),
                         ),
                       ),
                       Padding(
@@ -202,7 +202,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               ),
                             ),
                             child: const Text(
-                              "Sign Up",
+                              "Đăng ký",
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
@@ -277,7 +277,7 @@ class _SignupScreenState extends State<SignupScreen> {
         ),
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 5),
-          child: Text("Or"),
+          child: Text("Hoặc"),
         ),
         Expanded(
           child: Divider(color: Colors.black.withOpacity(0.3)),
@@ -293,14 +293,14 @@ class _SignupScreenState extends State<SignupScreen> {
         text: TextSpan(
           children: [
             TextSpan(
-              text: "Already have an account?",
+              text: "Bạn đã có tài khoản?",
               style: TextStyle(
                 color: Colors.white.withOpacity(0.7),
                 fontSize: 20,
               ),
             ),
             TextSpan(
-              text: " Login",
+              text: " Đăng nhập",
               style: TextStyle(
                 decoration: TextDecoration.underline,
                 color: Colors.white.withOpacity(0.7),
@@ -314,7 +314,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 },
             ),
             TextSpan(
-              text: " here!",
+              text: " ngay!",
               style: TextStyle(
                 color: Colors.white.withOpacity(0.7),
                 fontSize: 20,

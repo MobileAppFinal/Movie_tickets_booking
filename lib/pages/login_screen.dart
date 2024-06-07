@@ -36,20 +36,20 @@ class _LoginScreenState extends State<LoginScreen> {
 
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) {
-      return "Email cannot be empty";
+      return "Email không thể trống";
     }
     if (!value.contains('@')) {
-      return "Please enter a valid email";
+      return "Vui lòng nhập email hợp lệ";
     }
     return null;
   }
 
   String? _validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return "Password cannot be empty";
+      return "Mật khẩu không thể trống";
     }
     if (value.length < 6) {
-      return "Password must be at least 6 characters";
+      return "Mật khẩu ít nhất 6 ký tự";
     }
     return null;
   }
@@ -104,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const Padding(
               padding: EdgeInsets.only(top: 50),
               child: Text(
-                "Wellcome to",
+                "Chào mừng đến với",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 22,
@@ -126,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Padding(
               padding: EdgeInsets.only(top: 30),
               child: Text(
-                "Login to continue",
+                "Đăng nhập để tiếp tục",
                 style: TextStyle(
                   color: Colors.white.withOpacity(0.7),
                   fontSize: 20,
@@ -151,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Padding(
                           padding: EdgeInsets.only(top: 10),
                           child: Text(
-                            "Login to your account",
+                            "Đăng nhập tài khoản của bạn",
                             style: TextStyle(
                               color: MyTheme.splash.withOpacity(0.7),
                               fontWeight: FontWeight.w600,
@@ -189,7 +189,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             validator: _validatePassword,
                             obscureText: _obscureText,
                             decoration: InputDecoration(
-                              hintText: "Password",
+                              hintText: "Mật khẩu",
                               hintStyle: const TextStyle(
                                 color: Colors.grey,
                               ),
@@ -225,7 +225,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               TextButton(
                                 onPressed: () {},
                                 child: const Text(
-                                  "Forgot Password?",
+                                  "Quên mật khẩu?",
                                   style: TextStyle(
                                     color: MyTheme.splash,
                                     fontWeight: FontWeight.w600,
@@ -256,7 +256,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                               ),
                               child: const Text(
-                                "Login",
+                                "Đăng nhập",
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -277,7 +277,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               const Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 5),
-                                child: Text( "Or"),
+                                child: Text( "Hoặc"),
                               ),
                               Expanded(
                                 child: Divider(
@@ -304,14 +304,14 @@ class _LoginScreenState extends State<LoginScreen> {
               child: RichText(text: TextSpan(
                 children: [
                   TextSpan(
-                    text: "Don't have an account? ",
+                    text: "Bạn chưa có tài khoản? ",
                     style: TextStyle(
                       color: Colors.white.withOpacity(0.7),
                       fontSize: 20,
                     ),
                   ),
                   TextSpan(
-                    text: "Sign up",
+                    text: "Đăng ký",
                     style: TextStyle(
                       decoration: TextDecoration.underline,
                       color: Colors.white.withOpacity(0.7),
@@ -326,7 +326,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                   ),
                   TextSpan(
-                    text: " here!",
+                    text: " ngay!",
                     style: TextStyle(
                       color: Colors.white.withOpacity(0.7),
                       fontSize: 18,

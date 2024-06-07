@@ -85,7 +85,7 @@ class FacilitesBottomSheet extends StatelessWidget {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Available Facilites",
+                  "Cơ sở hạ tầng",
                   style: TextStyle(
                     fontSize: 14,
                   ),

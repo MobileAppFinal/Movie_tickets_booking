@@ -64,7 +64,7 @@ class CustomCalendar extends StatelessWidget {
                   return Container(
                     width: 40,
                     child: const Text(
-                      "This week",
+                      "Tuần này",
                       textAlign: TextAlign.right,
                       style: TextStyle(fontSize: 10),
                     ),
@@ -82,7 +82,7 @@ class CustomCalendar extends StatelessWidget {
                     onTap: () {
                       //print(text.isBefore(todayDate.subtract(const Duration(days: 1))));
                       if (text.isBefore(todayDate.subtract(const Duration(days: 1)))) {
-                        AuthController.instance.getErrorSnackBarNew("Cannot select previous date");
+                        AuthController.instance.getErrorSnackBarNew("Không thể chọn ngày đã qua");
                         return;
                       }
                       calendarController.updateMovieDate(text);
@@ -123,7 +123,7 @@ class CustomCalendar extends StatelessWidget {
                   return Container(
                     width: 40,
                     child: const Text(
-                      "Next week",
+                      "Tuần tới",
                       textAlign: TextAlign.right,
                       style: TextStyle(fontSize: 10),
                     ),

@@ -7,8 +7,8 @@ class InputValidator {
       return true;
     }
     Get.snackbar(
-      "Error",
-      "$title is empty",
+      "Lỗi",
+      "$title trống",
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Colors.orange,
       colorText: Colors.white,
@@ -23,8 +23,8 @@ class InputValidator {
       return true;
     }
     Get.snackbar(
-      "Error",
-      "Confirm Password do not match",
+      "Lỗi",
+      "Mật khẩu nhập lại không khớp",
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Colors.orange,
       colorText: Colors.white,

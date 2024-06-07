@@ -102,9 +102,9 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
             () => Center(
               child: Text(
                 SeatSelectionController.instance.isSeatSelection.value
-                    ? "Pay ${SeatSelectionController.instance.seatPrice.value}"
-                    : "Select Seats",
-                style: const TextStyle(fontSize: 18),
+                    ? "Thanh toán ${SeatSelectionController.instance.seatPrice.value}đ"
+                    : "Chọn ghế",
+                style: const TextStyle(fontSize: 18, color: Colors.white,),
               ),
             ),
           ),

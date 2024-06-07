@@ -77,7 +77,7 @@ class TheatreBlock extends StatelessWidget {
                         style: const TextStyle(color: Color(0xff999999)),
                       ),
                       const TextSpan(
-                        text: "2.3km Away",
+                        text: "Cách 2.3km",
                         style: TextStyle(color: Color(0xff444444)),
                       ),
                     ],
