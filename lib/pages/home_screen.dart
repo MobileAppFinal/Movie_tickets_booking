@@ -12,6 +12,7 @@ import 'package:movie_tickets_booking/pages/profile_screen.dart';
 import 'package:movie_tickets_booking/utils/event_items.dart';
 import 'package:movie_tickets_booking/utils/mytheme.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:movie_tickets_booking/pages/select_location_screen.dart';
 
 import '../controllers/auth_controller.dart';
 import '../controllers/location_controller.dart';
@@ -42,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen>{
 
 @override
   void initState() {
-    //SharedPref.getLocation().then((value) => LocationController.instance.setCity(value));
+    SharedPref.getLocation().then((value) => LocationController.instance.setCity(value));
     super.initState();
   }
 
@@ -88,27 +89,22 @@ class _HomeScreenState extends State<HomeScreen>{
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text (
-                    AuthController.instance.user!.displayName ?? "Name",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  DropdownButton<String>(
-                    value: city,
-                    dropdownColor: Colors.white,
-                    isDense: true,
-                    icon: const Icon(Icons.keyboard_arrow_down, color: Colors.white),
-                    items: cities
-                      .map(
-                        (e) => DropdownMenuItem<String>(
-                          value: e,
-                          child: Text(e),
-                        ),
-                      )
-                      .toList(),
-                    onChanged: (st){
-                      setState(() {
-                        city = st!;
-                      });
+                    AuthController.instance.user!.displayName ?? "Name"),
+                    GestureDetector(
+                    onTap: () {
+                      Get.to(() => const SelectionLocationScreen());
                     },
+                    child: Row(
+                      children: [
+                        Obx(
+                          () => Text(
+                            LocationController.instance.city.value,
+                            style: TextStyle(color: Colors.white.withOpacity(0.7), inherit: true, fontSize: 14),
+                          ),
+                        ),
+                        Icon(Icons.keyboard_arrow_down, color: Colors.white.withOpacity(0.7)),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -152,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen>{
                     style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black.withOpacity(0.8)),
                   ),
                 ),
-                const MenuItem(),
+                const MyMenuItem(),
                 Padding(
                   padding: const EdgeInsets.only(left: 20, top: 10),
                   child: Text(
@@ -270,22 +266,5 @@ class _HomeScreenState extends State<HomeScreen>{
 }
 
 
-// void main() async {
 
-//   runApp(const MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       theme: MyTheme.myLightTheme,
-//       debugShowCheckedModeBanner: false,
-//       home: HomeScreen(),
-//     );
-//   }
-// }
 

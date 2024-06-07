@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 class MyTheme {
 
   static const splash = Color.fromARGB(255, 98, 21, 121);
-
-
-
   static const statusBar = Color(0xFF2E3147);
   static const appBarColor = Color(0xFF222539);
   static const greenColor = Color(0xFF2EC492);
@@ -30,12 +27,10 @@ class MyTheme {
     primaryColor: splash,
     scaffoldBackgroundColor: Colors.white,
     textTheme: TextTheme(
-
       // subtitle1: TextStyle(color: Colors.white.withOpacity(0.7), inherit: true),
     ),
     brightness: Brightness.light,
     // backgroundColor: Colors.white,
-
     fontFamily: 'Poppins',
     buttonTheme: const ButtonThemeData(
       colorScheme: ColorScheme.light(
