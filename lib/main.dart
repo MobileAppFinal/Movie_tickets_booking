@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
+
 import 'package:get/get.dart';
 import 'package:movie_tickets_booking/pages/start_screen.dart';
 
@@ -16,7 +16,7 @@ void main() async {
   Get.put(AuthController());
   Get.put(LocationController());
   Get.put(CommonController());
-  Stripe.publishableKey = "pk_test_51PPBtWGRliW42lY2uqYo3tiCUBV41uWx0nQGdxCUGyOl0EUj1ektNo4tKsSzNIMS2m2pMfYUIdS4HXYqI4ZmM4ol00lEeUA3Ns";
+
   runApp(const MyApp());
 }
 
